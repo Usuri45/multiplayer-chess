@@ -47,7 +47,8 @@ io.use(wrap(sessionMiddleware));
 main().catch(err => console.log(err));
 
 async function main() {
-    await mongoose.connect("MONGODB_URI_REDACTED");
+    mongoose.connect("MONGODB_URI_REDACTED")
+    .then(() => {console.log("mongo conn")}).catch((e) => {console.log(e)});
 }
 
 var socketIdByUsername = {};
