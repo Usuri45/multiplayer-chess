@@ -27,7 +27,7 @@ const corsOptions = {
     optionsSuccessStatus: 204,
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.json())
 const sessionMiddleware = session({
@@ -47,7 +47,7 @@ io.use(wrap(sessionMiddleware));
 main().catch(err => console.log(err));
 
 async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/database');
+    await mongoose.connect("MONGODB_URI_REDACTED");
 }
 
 var socketIdByUsername = {};
